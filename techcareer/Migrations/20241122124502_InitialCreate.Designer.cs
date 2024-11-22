@@ -11,7 +11,7 @@ using techcareer.Data;
 namespace techcareer.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241120124618_InitialCreate")]
+    [Migration("20241122124502_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -51,6 +51,10 @@ namespace techcareer.Migrations
 
                     b.HasKey("KayitId");
 
+                    b.HasIndex("BootcampId");
+
+                    b.HasIndex("OgrenciId");
+
                     b.ToTable("BootcampKayitlari");
                 });
 
@@ -75,6 +79,25 @@ namespace techcareer.Migrations
                     b.HasKey("OgrenciId");
 
                     b.ToTable("Ogrenciler");
+                });
+
+            modelBuilder.Entity("techcareer.Data.BootcampKayit", b =>
+                {
+                    b.HasOne("techcareer.Data.Bootcamp", "Bootcamp")
+                        .WithMany()
+                        .HasForeignKey("BootcampId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("techcareer.Data.Ogrenci", "Ogrenci")
+                        .WithMany()
+                        .HasForeignKey("OgrenciId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Bootcamp");
+
+                    b.Navigation("Ogrenci");
                 });
 #pragma warning restore 612, 618
         }
