@@ -16,5 +16,6 @@ namespace techcareer.Data{
         }
         public string? Eposta {get;set;}
         public string? Telefon {get;set;}
+        public ICollection<BootcampKayit> BootcampKayitlari {get;set;} = new List<BootcampKayit>();
     }
 }

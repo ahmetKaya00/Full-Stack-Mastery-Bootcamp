@@ -8,6 +8,7 @@
             <tr>
                 <th>@Html.DisplayNameFor(m=>m.BootcampId)</th>
                 <th>@Html.DisplayNameFor(m=>m.Baslik)</th>
+                <th>@Html.DisplayNameFor(m=>m.Ogretmen.AdSoyad)</th>
 
                 <th style="width: 150px;">Ayarlar</th>
             </tr>
@@ -17,6 +18,7 @@
                 <tr>
                     <td>@Html.DisplayFor(modelItem => item.BootcampId)</td>
                     <td>@Html.DisplayFor(modelItem => item.Baslik)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ogretmen.AdSoyad)</td>
                     <td>
                         <a asp-controller="Bootcamp" asp-action="Edit" asp-route-id="@item.BootcampId" class="btn btn-sm btn-warning">Details</a>
                         <a asp-controller="Bootcamp" asp-action="Delete" asp-route-id="@item.BootcampId" class="btn btn-sm btn-danger">Delete</a>

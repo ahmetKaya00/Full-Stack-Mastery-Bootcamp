@@ -4,21 +4,21 @@ using techcareer.Data;
 
 namespace techcareer.Controllers{
 
-    public class OgrenciController : Controller{
+    public class OgretmenController : Controller{
         private readonly DataContext _context;
-        public OgrenciController(DataContext context){
+        public OgretmenController(DataContext context){
             _context = context;
         }
         public async Task<IActionResult> Index(){
-            return View(await _context.Ogrenciler.ToListAsync());
+            return View(await _context.Ogretmenler.ToListAsync());
         }
         public IActionResult Create(){
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Ogrenci model){
-            _context.Ogrenciler.Add(model);
+        public async Task<IActionResult> Create(Ogretmen model){
+            _context.Ogretmenler.Add(model);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
@@ -30,10 +30,7 @@ namespace techcareer.Controllers{
             }
 
             
-             var ogr = await _context.Ogrenciler
-                                     .Include(o=>o.BootcampKayitlari)
-                                     .ThenInclude(o=>o.Bootcamp)
-                                     .FirstOrDefaultAsync(o=>o.OgrenciId == id);
+             var ogr = await _context.Ogretmenler.FirstOrDefaultAsync(o=>o.OgretmenId == id);
 
             if(ogr == null){
                 return NotFound();
@@ -43,9 +40,9 @@ namespace techcareer.Controllers{
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult>Edit(int id, Ogrenci model){
+        public async Task<IActionResult>Edit(int id, Ogretmen model){
 
-            if(id != model.OgrenciId){
+            if(id != model.OgretmenId){
                 return NotFound();
             }
             if(ModelState.IsValid){
@@ -54,7 +51,7 @@ namespace techcareer.Controllers{
                     await _context.SaveChangesAsync();
                 }
                 catch(DbUpdateConcurrencyException){
-                    if(!_context.Ogrenciler.Any(o=>o.OgrenciId == model.OgrenciId)){
+                    if(!_context.Ogretmenler.Any(o=>o.OgretmenId == model.OgretmenId)){
                         return NotFound();
                     }else{
                         throw;
@@ -71,20 +68,20 @@ namespace techcareer.Controllers{
             if(id == null){
                 return NotFound();
             }
-            var ogrenci = await _context.Ogrenciler.FindAsync(id);
-            if(ogrenci == null){
+            var Ogretmen = await _context.Ogretmenler.FindAsync(id);
+            if(Ogretmen == null){
                 return NotFound();
             }
-            return View(ogrenci);
+            return View(Ogretmen);
         }
 
         [HttpPost]
         public async Task<IActionResult> Delete([FromForm]int id){
-            var ogrenci = await _context.Ogrenciler.FindAsync(id);
-            if(ogrenci == null){
+            var Ogretmen = await _context.Ogretmenler.FindAsync(id);
+            if(Ogretmen == null){
                 return NotFound();
             }
-            _context.Ogrenciler.Remove(ogrenci);
+            _context.Ogretmenler.Remove(Ogretmen);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }

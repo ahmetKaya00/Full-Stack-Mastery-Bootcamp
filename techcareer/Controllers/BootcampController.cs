@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using techcareer.Data;
+using techcareer.Models;
 
 namespace techcareer.Controllers{
 
@@ -10,9 +12,11 @@ namespace techcareer.Controllers{
             _context = context;
         }
         public async Task<IActionResult> Index(){
-            return View(await _context.Bootcamps.ToListAsync());
+            var bootcamps = await _context.Bootcamps.Include(b=>b.Ogretmen).ToListAsync();
+            return View(bootcamps);
         }
-        public IActionResult Create(){
+        public async Task<IActionResult> Create(){
+            ViewBag.Ogretmenler = new SelectList(await _context.Ogretmenler.ToListAsync(),"OgretmenId","AdSoyad");
             return View();
         }
 
@@ -29,25 +33,36 @@ namespace techcareer.Controllers{
                 return NotFound();
             }
 
-             var btc = await _context.Bootcamps.FindAsync(id);
-           //  var ogr = await _context.Bootcampler.FirstOrDefaultAsync(o=>o.BootcampId == id);
+
+             var btc = await _context.Bootcamps
+             .Include(b=>b.BootcampKayitlari)
+             .ThenInclude(b=>b.Ogrenci)
+             .Select(b=>new BootcampViewModel{
+                BootcampId = b.BootcampId,
+                Baslik = b.Baslik,
+                OgretmenId = b.OgretmenId,
+                BootcampKayitlari = b.BootcampKayitlari
+             })
+             .FirstOrDefaultAsync(o=>o.BootcampId == id);
 
             if(btc == null){
                 return NotFound();
             }
+            ViewBag.Ogretmenler = new SelectList(await _context.Ogretmenler.ToListAsync(),"OgretmenId","AdSoyad");
+
             return View(btc);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult>Edit(int id, Bootcamp model){
+        public async Task<IActionResult>Edit(int id, BootcampViewModel model){
 
             if(id != model.BootcampId){
                 return NotFound();
             }
             if(ModelState.IsValid){
                 try{
-                    _context.Update(model);
+                    _context.Update(new Bootcamp(){BootcampId = model.BootcampId, Baslik = model.Baslik, OgretmenId = model.OgretmenId});
                     await _context.SaveChangesAsync();
                 }
                 catch(DbUpdateConcurrencyException){
@@ -59,7 +74,8 @@ namespace techcareer.Controllers{
                 }
                 return RedirectToAction("Index");
             }
-            
+
+            ViewBag.Ogretmenler = new SelectList(await _context.Ogretmenler.ToListAsync(),"OgretmenId","AdSoyad");
             return View(model);
         }
 

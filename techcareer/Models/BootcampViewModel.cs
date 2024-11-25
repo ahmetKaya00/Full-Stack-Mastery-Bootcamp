@@ -1,14 +1,12 @@
-using System.ComponentModel.DataAnnotations;
+using techcareer.Data;
 
-namespace techcareer.Data{
+namespace techcareer.Models{
 
-    public class Bootcamp{
-
-        [Key]
+    public class BootcampViewModel{
         public int BootcampId {get;set;}
         public string? Baslik {get;set;}
         public int? OgretmenId {get;set;}
-        public Ogretmen Ogretmen {get;set;} = null!;
         public ICollection<BootcampKayit> BootcampKayitlari {get;set;} = new List<BootcampKayit>();
+
     }
 }
