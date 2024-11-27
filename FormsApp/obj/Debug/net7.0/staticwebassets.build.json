@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sKm8XeOW4tZzge0xGhLCDAQv8WeiQnneWeAKvb6AlXo=",
+  "Hash": "8boz8ExKFbslpnUJJ/UOFXh2eJ3EyLAok61fnL2+Zcw=",
   "Source": "FormsApp",
   "BasePath": "_content/FormsApp",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Kaya3\\Documents\\GitHub\\Full-Stack-Mastery-Bootcamp\\FormsApp\\wwwroot\\img\\0172e6ab-f2a2-4158-8904-31313d41a5e9.png",
+      "SourceId": "FormsApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Kaya3\\Documents\\GitHub\\Full-Stack-Mastery-Bootcamp\\FormsApp\\wwwroot\\",
+      "BasePath": "_content/FormsApp",
+      "RelativePath": "img/0172e6ab-f2a2-4158-8904-31313d41a5e9.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\0172e6ab-f2a2-4158-8904-31313d41a5e9.png"
     },
     {
       "Identity": "C:\\Users\\Kaya3\\Documents\\GitHub\\Full-Stack-Mastery-Bootcamp\\FormsApp\\wwwroot\\img\\1.jpg",

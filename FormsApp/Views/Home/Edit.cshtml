@@ -1,0 +1,32 @@
+﻿@model Product
+
+<form asp-controller="Home" asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="All"></div>
+    <input type="hidden" asp-for="ProductId">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control">
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Price" class="form-label"></label>
+        <input asp-for="Price" class="form-control">
+        <span asp-validation-for="Price"></span>
+    </div>
+    <div class="mb-3">
+        <input type="file" name="imageFile" id="imageFile" class="form-control">
+    </div>
+    <img src="~/img/@Model.Image" style="width: 80px;" alt="">
+    <input type="hidden" asp-for="@Model.Image">
+    <div class="mb-3">
+        <label asp-for="CategoryId" class="form-class"></label>
+        <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.Categories">
+            <option value="0">Hepsi</option>
+        </select>
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" asp-for="IsActive" class="form-check-input">
+        <label asp-for="IsActive" class="form-check-label"></label>
+    </div>
+    <button type="submit" class="btn btn-success">Kaydet</button>
+</form>

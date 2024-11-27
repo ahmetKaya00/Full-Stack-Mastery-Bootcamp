@@ -16,12 +16,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Kaya3\Documents\GitHub\Full-Stack-Mastery-Bootcamp\FormsApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Kaya3/Documents/GitHub/Full-Stack-Mastery-Bootcamp/FormsApp/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/Kaya3/Documents/GitHub/Full-Stack-Mastery-Bootcamp/FormsApp/Views/Home/admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxhZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/Documents/GitHub/Full-Stack-Mastery-Bootcamp/FormsApp/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/Kaya3/Documents/GitHub/Full-Stack-Mastery-Bootcamp/FormsApp/Views/Home/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kaya3/Documents/GitHub/Full-Stack-Mastery-Bootcamp/FormsApp/Views/Home/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kaya3/Documents/GitHub/Full-Stack-Mastery-Bootcamp/FormsApp/Views/Home/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kaya3/Documents/GitHub/Full-Stack-Mastery-Bootcamp/FormsApp/Views/Home/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Kaya3/Documents/GitHub/Full-Stack-Mastery-Bootcamp/FormsApp/Views/Shared/Error.cshtml]
